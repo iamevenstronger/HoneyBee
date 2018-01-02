@@ -1,0 +1,34 @@
+{
+  "name": "honeybee",
+  "version": "1.0.0",
+  "description": "Serve like a honey soldier, job made easier.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "honeybee",
+    "hapijs",
+    "lab",
+    "sequelize",
+    "winston"
+  ],
+  "author": "Haribalajiravi",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.6.2",
+    "hapi-swagger": "^8.0.0",
+    "inert": "^4.2.1",
+    "joi": "^11.1.1",
+    "mysql": "^2.15.0",
+    "relish": "^0.2.4",
+    "vision": "^4.1.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "lab": "^15.1.2",
+    "nodemon": "^1.12.1"
+  }
+}
