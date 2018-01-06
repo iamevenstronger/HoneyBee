@@ -12,8 +12,8 @@ var Logger = require('./logger');
 const logger = new Logger();
 
 // if host needed. heroku platform dont need host
-// var host = config.application['host'];
-// var port = config.application['port'];
+// var host = config.production['host'];
+// var port = config.production['port'];
 // Create a server with a host and port
 server.connection({
     // if host needed (note: heroku server dont need host name specification)
