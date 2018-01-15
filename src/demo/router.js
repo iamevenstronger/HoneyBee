@@ -1,6 +1,7 @@
 'use strict';
 
 const validate = require('./validation');
+const response = require('./response');
 const handler = require('./handler');
 const handle = new handler();
 function demoRouter() {
@@ -12,7 +13,10 @@ function demoRouter() {
             description: 'Post user data',
             notes: 'demo post request',
             tags: ['api','user'],
-            validate: validate.create 
+            validate: validate.create,
+            response: {
+                schema : response.create
+            }
         }
     }, {
         method: 'PUT',
@@ -22,7 +26,10 @@ function demoRouter() {
             description: 'Update user data',
             notes: 'demo update request',
             tags: ['api','user'],
-            validate: validate.update
+            validate: validate.update,
+            response: {
+                schema : response.update
+            }
         }       
     }];
 }
