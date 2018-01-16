@@ -18,7 +18,7 @@ const logger = new Logger();
 server.connection({
     // if host needed (note: heroku server dont need host name specification)
     // host : host,
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 8080,
     // for cross-origin
     routes: {
         cors: true
