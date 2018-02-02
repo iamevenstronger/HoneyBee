@@ -8,6 +8,7 @@ const HapiSwagger = require('hapi-swagger');
 const swaggerOptions = require('./config/swagger');
 var config = require('./config/config');
 var routes = require('./src/routes');
+var db = require('./db');
 var Logger = require('./logger');
 const logger = new Logger();
 
@@ -37,14 +38,20 @@ server.register([
         }
     });
 
-server.route(routes);
-
-// Start the server
-server.start((err) => {
-    if (err) {
-        throw err;
-    }
-    logger.info('Server running at:' + server.info.uri);
-});
+db.authenticate()
+    .then(() => {
+        logger.info('Database Connection has been established successfully.');
+        server.route(routes);
+        // Start the server
+        server.start((err) => {
+            if (err) {
+                throw err;
+            }
+            logger.info('Server running at:' + server.info.uri);
+        });
+    })
+    .catch(err => {
+        logger.error('Unable to connect to the database:', err);
+    });
 
 module.exports = server;
