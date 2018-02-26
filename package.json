@@ -2,7 +2,7 @@
   "name": "honeybee",
   "version": "1.0.0",
   "description": "Serve like a honey soldier, job made easier.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
