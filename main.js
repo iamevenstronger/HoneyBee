@@ -38,20 +38,13 @@ server.register([
         }
     });
 
-db.authenticate()
-    .then(() => {
-        logger.info('Database Connection has been established successfully.');
-        server.route(routes);
-        // Start the server
-        server.start((err) => {
-            if (err) {
-                throw err;
-            }
-            logger.info('Server running at:' + server.info.uri);
-        });
-    })
-    .catch(err => {
-        logger.error('Unable to connect to the database:', err);
-    });
+server.route(routes);
+// Start the server
+server.start((err) => {
+   if (err) {
+        throw err;
+   }
+   logger.info('Server running at:' + server.info.uri);
+});
 
 module.exports = server;
