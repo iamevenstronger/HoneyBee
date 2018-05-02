@@ -38,22 +38,19 @@ server.register([
         }
     });
 
-db
-  .authenticate()
-  .then(() => {
+db.authenticate().then(() => {
     console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
+}).catch(err => {
     console.error('Unable to connect to the database:', err);
-  });
+});
 
 server.route(routes);
 // Start the server
 server.start((err) => {
-   if (err) {
+    if (err) {
         throw err;
-   }
-   logger.info('Server running at:' + server.info.uri);
+    }
+    logger.info('Server running at:' + server.info.uri);
 });
 
 module.exports = server;
