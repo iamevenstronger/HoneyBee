@@ -1,6 +1,11 @@
 'use strict';
 
 var winston = require('winston');
+const files = new winston.transports.File({ filename: 'logs/app.log' });
+const console = new winston.transports.Console();
+
+winston.add(console);
+winston.add(files);
 
 function Logger() {
 
