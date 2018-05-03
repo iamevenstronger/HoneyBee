@@ -10,6 +10,7 @@ function handler() {
         reply({ statusCode:200,success: true, message: "User data inserted!" });
     }
     this.update = function (request, reply) {
+        logger.info('Create module success');
         reply({ statusCode:200,success: true, message: "User data update!" });
     }
 }

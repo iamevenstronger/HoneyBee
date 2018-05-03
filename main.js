@@ -32,24 +32,23 @@ server.register([
     {
         'register': HapiSwagger,
         'options': swaggerOptions
-    }], (err) => {
-        if (err) {
-            logger.error('Failed to load plugin:' + err);
+    }], (reg_err) => {
+        if (reg_err) {
+            logger.error('Failed to load plugin:' + reg_err);
         }
     });
 
 db.authenticate().then(() => {
-    console.log('Connection has been established successfully.');
-})
-.catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
+    logger.info('Connection has been established successfully.');
+}).catch((db_err) => {
+        logger.error('Unable to connect to the database:', db_err);
+});
 
 server.route(routes);
 // Start the server
-server.start((err) => {
-    if (err) {
-        throw err;
+server.start((serve_err) => {
+    if (serve_err) {
+        throw serve_err;
     }
     logger.info('Server running at:' + server.info.uri);
 });

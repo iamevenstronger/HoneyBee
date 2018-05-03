@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "nodemon main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/lab -c -t 90 -v -l"
   },
   "keywords": [
     "honeybee",
